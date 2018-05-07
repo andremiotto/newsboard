@@ -2,8 +2,8 @@
 
 one:
   url: MyText
-  comment: MyString
+  comment: MyText
 
 two:
   url: MyText
-  comment: MyString
+  comment: MyText
