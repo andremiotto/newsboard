@@ -1,2 +1,5 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<h1>INDEX</h1>
+<% @articles.each do |article| %>
+  <h2><%= article.url %></h2>
+  <p><%= article.comment %></p>
+<% end %>

@@ -1,2 +1,10 @@
+<!-- Show @article -->
 <h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<div class="article-show">
+  <p>url:</p>
+  <h3><%= @article.url %></h3>
+  <p>comment:</p>
+  <h3><%= @article.comment %></h3>
+  <p>user ID</p>
+  <h3><%= @article.user %></h3>
+</div>
