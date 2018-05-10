@@ -8,6 +8,7 @@ function loadDynamicBannerText() {
     typeSpeed: 100,
     backDelay: 1000,
     backSpeed: 110,
+    showCursor: false
   });
 }
 

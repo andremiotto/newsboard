@@ -1,5 +1,31 @@
 <h1>INDEX</h1>
-<% @articles.each do |article| %>
-  <h2><%= article.url %></h2>
-  <p><%= article.comment %></p>
-<% end %>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="register col-sm-offset-4 col-sm-4">
+        <h3>News</h3>
+
+        <div class="article-wrapper">
+          <% @articles.each do |article| %>
+          <div class="article-card">
+            <div class="article-url">
+              <h4><%= article.url %></h4>
+            </div>
+            <div class="artile-comment">
+              <p>comment:</p>
+              <h4><%= article.comment %></h4>
+            </div>
+            <div class="article-owner-id">
+              <p>User</p>
+              <h3><%= article.owner_id %></h3>
+            </div>
+          </div>
+
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

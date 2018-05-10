@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update]
 
   def index
-    @articles = Article.all
+    @articles = Article.order('created_at DESC')
   end
 
   # def user_index
@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
 
     # @article = current_user.articles.new(article_params)
     if @article.save
-      redirect_to article_path(@article)
+      redirect_to articles_path
     else
       render :new
     end
