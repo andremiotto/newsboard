@@ -1,8 +1,14 @@
 .home-banner {
-  background-image: url('TODO: A picture URL from unsplash.com!');
+  background-image: url('banner.jpg');
   background-size: cover;
-  height: 100vh;
+  height: calc(100vh - 70px);
   color: #eee;
   text-align: center;
   padding-top: 40vh;
+}
+
+#banner-typed-text {
+  font-family: 'Satisfy', cursive;
+  font-size: 100px;
+  color: #FFFBF3;
 }
