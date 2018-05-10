@@ -1,0 +1,11 @@
+<!-- Collects input of data to create an article -->
+
+<div class="article-form">
+  <%= simple_form_for [@user, @article] do |f| %>
+    <%= f.input :url, :label => "Web address", required: true %>
+    <%= f.input :comment, :placeholder => "Your thoughts about it" %>
+    <div class="article-button">
+      <%= f.submit "Share", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

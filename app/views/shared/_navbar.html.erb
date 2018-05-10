@@ -10,8 +10,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Post", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Articles", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Post", new_article_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Articles", articles_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Follows", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
