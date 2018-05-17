@@ -46,9 +46,7 @@ class ArticlesController < ApplicationController
   end
 
   def url_data
-    # @url_object = Mechanize.new.get("#{@article.url}")
-        # <h2><%= Mechanize.new.get("#{article.url}").title %></h2>
-
+    # @url_object = OpenGraphReader.fetch("#{article.url}")
   end
 
   private
