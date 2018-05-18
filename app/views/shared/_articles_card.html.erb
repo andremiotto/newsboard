@@ -11,7 +11,7 @@
 
           <!-- Passar essa lógica para Articles Controller -->
 
-          <div><% object = OpenGraphReader.fetch("#{article.url}") %></div>
+          <% object = OpenGraphReader.fetch("#{article.url}") %>
           <div class="article-title"><%= object.og.title %></div>
           <div class="article-img"><%= image_tag "#{object.og.image.url}" %></div>
           <div class="article-description"><%= object.og.description %></div>

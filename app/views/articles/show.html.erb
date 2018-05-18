@@ -1,27 +1,43 @@
 <!-- Show @article -->
+
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <div class="register col-sm-offset-4 col-sm-4">
-        <h3>Selected Article</h3>
+      <div class="article-id col-sm-offset-1 col-sm-10">
+        <h3>Article ID</h3>
 
         <div class="article-wrapper">
+          <div class="article-container">
 
-          <div class="article-url">
-            <p>url:</p>
-            <%= link_to "Read on source", @article.url, target: :_blank %>
+            <!-- Passar essa inteligência para Controller#Show -->
+            <% object = OpenGraphReader.fetch("#{@article.url}") %>
+            <div class="article-title"><%= object.og.title %></div>
+
+            <div class="article-body">
+              <p>News content:</p>
+              <% url =  @article.url %>
+              <% html_file = open(url).read %>
+              <% html_doc = Nokogiri::HTML(html_file) %>
+              <%= html_doc.search('.article__content').text %>
+            </div>
+
+            <div class="article-img"><%= image_tag "#{object.og.image.url}" %></div>
+
+            <div class="article-url">
+              <p>url:</p>
+              <%= link_to "Read on main source", @article.url, target: :_blank %>
+            </div>
+
+            <div class="artile-comment">
+              <p>comment:</p>
+              <h3><%= @article.comment %></h3>
+            </div>
+
+            <div class="article-user-id">
+              <p>Username</p>
+              <h3><%= @article.user.username %></h3>
+            </div>
           </div>
-
-          <div class="artile-comment">
-            <p>comment:</p>
-            <h3><%= @article.comment %></h3>
-          </div>
-
-          <div class="article-user-id">
-            <p>Username</p>
-            <h3><%= @article.user.username %></h3>
-          </div>
-
         </div>
       </div>
     </div>
