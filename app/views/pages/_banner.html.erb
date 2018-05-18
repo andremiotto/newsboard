@@ -3,9 +3,9 @@
     <div class="banner-row">
 
       <% if user_signed_in? %>
-        <%= link_to "Post News", new_article_path , class: "btn btn-danger " %>
+        <%= link_to "Post News", new_article_path , class: "banner-post-button " %>
       <% else %>
-        <%= link_to "Sign Up", new_user_registration_path , class: " banner-button" %>
+        <%= link_to "Sign Up", new_user_registration_path , class: "banner-sign-button" %>
       <% end %>
     <div class="typed-js">
       <h1><span id="banner-typed-text"></span></h1>

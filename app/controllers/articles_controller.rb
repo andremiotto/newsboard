@@ -46,7 +46,7 @@ class ArticlesController < ApplicationController
   end
 
   def url_data
-    # @url_object = OpenGraphReader.fetch("#{article.url}")
+    # @url_object = OpenGraphReader.fetch("#{@articles.url}")
   end
 
   private

@@ -13,18 +13,37 @@
   color: #FFFBF3;
 }
 
-.banner-button {
+.banner-sign-button {
   cursor: pointer;
-  padding: 0 35px;
+  padding: 10px 55px;
   background-color: white;
   color: #DEB841;
   font-size: 20px;
   border-style: solid;
   border-radius: 3px;
-}
-.banner-button:hover {
-  text-decoration: none;
-  background-color: transparent;
-  color: #DEB841;
-  font-weight: bolder;
+  transition-duration: 1s;
+  &:hover {
+    transition-duration: 1s;
+    text-decoration: none;
+    background-color: transparent;
+    color: #DEB841;
+    font-weight: bolder;
   }
+}
+
+.banner-post-button {
+  cursor: pointer;
+  padding: 10px 55px;
+  background-color: #A52422;
+  color: white;
+  font-size: 20px;
+  border-style: solid;
+  border-radius: 3px;
+  transition-duration: 1s;
+  &:hover {
+    transition-duration: 1s;
+    text-decoration: none;
+    background-color: transparent;
+    color: #A52422;
+  }
+}
