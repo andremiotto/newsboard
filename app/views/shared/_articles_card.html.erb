@@ -6,12 +6,19 @@
     <div class="articles-card">
       <div class="articles-card-body">
 
-          <div class="article-card-url">
-            <h6 class="article-card-user">Publisher: <%= article.user.username %></h6>
-            <h2><%= article.url %></h2>
-            <h6 class="article-card-comment">Thoughts on this: <%= article.comment %></h6>
-          </div>
+        <div class="article-card-url">
+          <h6 class="article-user">Publisher: <%= article.user.username %></h6>
 
+          <div><% object = OpenGraphReader.fetch("#{article.url}") %></div>
+          <div class="article-title"><%= object.og.title %></div>
+          <div class="article-img"><%= image_tag "#{object.og.image.url}" %></div>
+          <div class="article-description"><%= object.og.description %></div>
+          <div class="article-site-name"><%= object.og.site_name %></div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <h6 class="article-card-comment">His thoughts: <%= article.comment %></h6>
       </div>
     </div>
   </div>

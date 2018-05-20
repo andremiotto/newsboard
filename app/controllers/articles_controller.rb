@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  before_action :set_article, only: [:show, :edit, :update]
+  before_action :set_article, only: [:show, :edit, :update, :url_data]
 
   def index
     @articles = Article.order('created_at DESC')
@@ -43,6 +43,12 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
+  end
+
+  def url_data
+    # @url_object = Mechanize.new.get("#{@article.url}")
+        # <h2><%= Mechanize.new.get("#{article.url}").title %></h2>
+
   end
 
   private

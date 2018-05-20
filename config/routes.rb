@@ -12,6 +12,13 @@ Rails.application.routes.draw do
   # routes of articles
   resources :articles
 
+  resources :articles do
+    member do                             # member => article id in URL
+      get 'url_data', to: "articles#url_data"  # ArticlesController#url_data
+    end
+  end
+
+
   # routes of reviews
   resources :reviews
 
