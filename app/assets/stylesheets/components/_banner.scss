@@ -12,3 +12,19 @@
   font-size: 100px;
   color: #FFFBF3;
 }
+
+.banner-button {
+  cursor: pointer;
+  padding: 0 35px;
+  background-color: white;
+  color: #DEB841;
+  font-size: 20px;
+  border-style: solid;
+  border-radius: 3px;
+}
+.banner-button:hover {
+  text-decoration: none;
+  background-color: transparent;
+  color: #DEB841;
+  font-weight: bolder;
+  }

@@ -1,0 +1,19 @@
+<!-- Inside the 'each' iterator of articles/index.html.erb -->
+
+<a class="card-link" href="<%= article_path(article)%>">
+
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="articles-card">
+      <div class="articles-card-body">
+
+          <div class="article-card-url">
+            <h6 class="article-card-user">Publisher: <%= article.user.username %></h6>
+            <h2><%= article.url %></h2>
+            <h6 class="article-card-comment">Thoughts on this: <%= article.comment %></h6>
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+</a>

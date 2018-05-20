@@ -1,5 +1,16 @@
 <div class="banner-wrapper">
   <div class="home-banner">
-    <h1><span id="banner-typed-text"></span></h1>
+    <div class="banner-row">
+
+      <% if user_signed_in? %>
+        <%= link_to "Post News", new_article_path , class: "btn btn-danger " %>
+      <% else %>
+        <%= link_to "Sign Up", new_user_registration_path , class: " banner-button" %>
+      <% end %>
+    <div class="typed-js">
+      <h1><span id="banner-typed-text"></span></h1>
+    </div>
+
+    </div>
   </div>
 </div>
