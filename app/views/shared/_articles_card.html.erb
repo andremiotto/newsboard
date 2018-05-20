@@ -9,7 +9,9 @@
         <div class="article-card-url">
           <h6 class="article-user">Publisher: <%= article.user.username %></h6>
 
-          <div><% object = OpenGraphReader.fetch("#{article.url}") %></div>
+          <!-- Passar essa lógica para Articles Controller -->
+
+          <% object = OpenGraphReader.fetch("#{article.url}") %>
           <div class="article-title"><%= object.og.title %></div>
           <div class="article-img"><%= image_tag "#{object.og.image.url}" %></div>
           <div class="article-description"><%= object.og.description %></div>

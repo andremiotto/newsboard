@@ -21,14 +21,12 @@ gem 'webpacker'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'bootstrap-sass'
-# Parses url input
-# gem 'mechanize'
+# Parses url head input
 gem 'open_graph_reader'
 gem 'faraday_middleware'
 gem 'faraday-cookie_jar'
-# gem 'nokogiri', '1.8.2'
-# gem 'opengraph'
-
+# Parses url body
+gem 'nokogiri'
 
 
 
