@@ -1,10 +1,26 @@
 <!-- Show @article -->
-<h1>Articles#show</h1>
-<div class="article-show">
-  <p>url:</p>
-  <h3><%= @article.url %></h3>
-  <p>comment:</p>
-  <h3><%= @article.comment %></h3>
-  <p>user ID</p>
-  <h3><%= @article.user %></h3>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="register col-sm-offset-4 col-sm-4">
+        <h3>Your Article details</h3>
+
+        <div class="article-wrapper">
+          <div class="article-url">
+            <p>url:</p>
+            <h3><%= @article.url %></h3>
+          </div>
+          <div class="artile-comment">
+            <p>comment:</p>
+            <h3><%= @article.comment %></h3>
+          </div>
+          <div class="article-user-id">
+            <p>user ID</p>
+            <h3><%= @article.user %></h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
