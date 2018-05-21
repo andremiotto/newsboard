@@ -22,11 +22,12 @@ gem 'webpacker'
 # gem 'therubyracer', platforms: :ruby
 gem 'bootstrap-sass'
 # Parses url head input
+gem 'nokogiri', '1.8.2'
 gem 'open_graph_reader'
 gem 'faraday_middleware'
 gem 'faraday-cookie_jar'
 # Parses url body
-gem 'nokogiri'
+# gem 'opengraph'
 
 
 

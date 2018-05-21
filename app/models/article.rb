@@ -1,7 +1,10 @@
 class Article < ApplicationRecord
 
-  # has_many :reviews
-  # has_many :users, through: :reviews
-
+# OK
   belongs_to :user, class_name: 'User', foreign_key: 'owner_id'
+# OK
+  has_many :reviews, dependent: :destroy
+  # OK
+  has_many :askers, through: :reviews
+
 end

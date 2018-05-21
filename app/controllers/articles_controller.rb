@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  before_action :set_article, only: [:show, :edit, :update, :url_data]
+  before_action :set_article, only: [:show, :edit, :update]
 
   def index
     @articles = Article.order('created_at DESC')
@@ -12,6 +12,9 @@ class ArticlesController < ApplicationController
   # end
 
   def show
+    require 'open-uri'
+    @reviews = Review.where(article: @article)
+    @review = Review.new
   end
 
   def new

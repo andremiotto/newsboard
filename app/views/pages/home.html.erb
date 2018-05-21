@@ -1,10 +1,13 @@
 
 <%= render "banner" %>
 
+      <% Article.last(6).each do |article| %>
+        <%= render 'home_articles', article: article %>
+      <% end %>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit " * 100 %>
     </div>
   </div>
 </div>
