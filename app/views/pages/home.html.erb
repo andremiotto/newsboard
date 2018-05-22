@@ -1,13 +1,14 @@
 
 <%= render "banner" %>
+  <% Article.last(6).each do |article| %>
+    <%= render 'home_articles', article: article %>
+  <% end %>
 
-      <% Article.last(6).each do |article| %>
-        <%= render 'home_articles', article: article %>
-      <% end %>
 
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam perferendis, eum quod voluptates, repellat quibusdam amet, beatae quaerat quam, culpa eligendi illum dolores perspiciatis aspernatur animi vel sed tempore nemo! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis unde, odio cum praesentium veniam. Quas aperiam voluptates nostrum, aspernatur ab nisi dolores, deleniti beatae tenetur dicta facere nihil velit! Illo.loem  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam perferendis, eum quod voluptates, repellat quibusdam amet, beatae quaerat quam, culpa eligendi illum dolores perspiciatis aspernatur animi vel sed tempore nemo! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis unde, odio cum praesentium veniam. Quas aperiam voluptates nostrum, aspernatur ab nisi dolores, deleniti beatae tenetur dicta facere nihil velit! Illo.loem  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam perferendis, eum quod voluptates, repellat quibusdam amet, beatae quaerat quam, culpa eligendi illum dolores perspiciatis aspernatur animi vel sed tempore nemo! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis unde, odio cum praesentium veniam. Quas aperiam voluptates nostrum, aspernatur ab nisi dolores, deleniti beatae tenetur dicta facere nihil velit! Illo.loem
     </div>
   </div>
 </div>

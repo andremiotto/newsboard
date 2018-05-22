@@ -9,20 +9,24 @@
       <div class="articles-card-body">
 
         <div class="article-card-url">
-          <div class="article-title"><%= object.og.title %></div>
-          <div class="article-img"><%= image_tag "#{object.og.image.url}" %></div>
-          <div class="article-site-name"><%= object.og.site_name %></div>
+          <div class="art-head">
+            <div class="article-title"><%= object.og.title %></div>
+          </div>
+          <div class="art-body">
+            <div class="article-img"><%= image_tag "#{object.og.image.url}" %></div>
+            <div class="article-site-name"><%= object.og.site_name %></div>
+          </div>
         </div>
 
       </div>
       <div class="articles-card-footer">
 
-        <div class="article-user">Publisher: <%= article.user.username %></div>
-        <div class="article-card-comment">His thoughts: <%= article.comment %></div>
-
+        <div class="article-user">Publisher:</div>
+        <div class="article-user-value"><%= article.user.username %></div>
+        <div class="article-card-comment">His thoughts:</div>
+        <div class="article-card-comment-value"><%= article.comment %></div>
 
       </div>
     </div>
   </div>
-
 </a>
