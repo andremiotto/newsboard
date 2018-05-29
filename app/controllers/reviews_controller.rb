@@ -1,10 +1,11 @@
 class ReviewsController < ApplicationController
   before_action :set_article, only: [:create, :update, :new, :edit]
   before_action :set_user, only: [:create, :new, :edit, :update]
-  before_action :set_review, only: [:edit, :update]
+  before_action :set_review, only: [:edit, :update, :destroy]
 
 
   def index
+    @reviews = Review.all
   end
 
   def new
@@ -19,11 +20,11 @@ class ReviewsController < ApplicationController
       respond_to  do |format|
         format.html {redirect_to article_path(@article)}
         format.js
-        redirect_to article_path(@article)
+        # redirect_to article_path(@article)
       end
     else
       respond_to do |format|
-        format.html { render 'shared/form_reviews'}
+        format.html { render 'articles/show'}
         format.js
       end
     end
@@ -36,11 +37,14 @@ class ReviewsController < ApplicationController
     if @review.update(review_params)
       redirect_to article_path(@article)
     else
-      render :new
+      render :edit
     end
   end
 
   def destroy
+    if @review.destroy
+      redirect_to article_path(@article)
+    end
   end
 
   private
