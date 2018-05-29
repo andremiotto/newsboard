@@ -7,4 +7,5 @@ class Article < ApplicationRecord
   # OK
   has_many :askers, through: :reviews
 
+  acts_as_likeable
 end
