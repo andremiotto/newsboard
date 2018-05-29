@@ -4,38 +4,72 @@
   <div class="container">
     <div class="row">
       <div class="article-id col-sm-offset-1 col-sm-10">
-        <h3>Article ID</h3>
-
         <div class="article-wrapper">
           <div class="article-container">
+            <div class="button-container">
+              <% if current_user == @article.owner_id %>
+                <%= link_to 'Edit', edit_article_path, class: "btn btn-default" %>
+                <%= link_to 'Trash', article_path(@article), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger btn-md' %>
+              <% end %>
+            </div>
 
             <!-- Passar essa inteligência para Controller#Show -->
             <% object = OpenGraphReader.fetch("#{@article.url}") %>
             <div class="article-title"><%= object.og.title %></div>
 
-            <div class="article-body">
-              <p>News content:</p>
-              <% url =  @article.url %>
-              <% html_file = open(url).read %>
-              <% html_doc = Nokogiri::HTML(html_file) %>
-              <%= html_doc.search('.article__content').text %>
+            <div class="article-layout">
+
+              <div class="article-body">
+                <p>News content:</p>
+                <% url = @article.url %>
+                <% html_file = open(url).read %>
+                <% html_doc = Nokogiri::HTML(html_file) %>
+                <%= html_doc.search('.article__content').text %>
+              </div>
+
+              <div class="article-img"><%= image_tag "#{object.og.image.url}" %></div>
             </div>
+            <div class="article-details col-sm-3 col-md-6 col-lg-12">
+              <div class="article-url">
+                <p>url:</p>
+                <%= link_to "Read on main source", @article.url, target: :_blank %>
+              </div>
 
-            <div class="article-img"><%= image_tag "#{object.og.image.url}" %></div>
+              <div class="artile-comment">
+                <p>comment:</p>
+                <h3><%= @article.comment %></h3>
+              </div>
 
-            <div class="article-url">
-              <p>url:</p>
-              <%= link_to "Read on main source", @article.url, target: :_blank %>
+              <div class="article-user-id">
+                <p>Username</p>
+                <h3><%= @article.user.username %></h3>
+              </div>
             </div>
+          </div>
+          <div class="reviews-show">
 
-            <div class="artile-comment">
-              <p>comment:</p>
-              <h3><%= @article.comment %></h3>
-            </div>
+            <div id="reviews">
+              <% if @reviews.length > 0 %>
+                <h2>Comments about it: </h2>
 
-            <div class="article-user-id">
-              <p>Username</p>
-              <h3><%= @article.user.username %></h3>
+              <div class="reviews-container"'>
+                <% @reviews.reverse.each do |review|  %>
+                <div class="message-review-row" >
+                  <div class="message-name col-sm-4">
+                    <p><%= review.asker.username %></p>
+                    <p><%= review.created_at %></p>
+                  </div>
+                  <div class="message-body col-sm-8">
+                    <h4> <%= review.text %> </h4>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+              <% end %>
+
+              <div class="review-box">
+                <%= render 'reviews/form_reviews', article: @article, review: @review %>
+              </div>
             </div>
           </div>
         </div>

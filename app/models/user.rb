@@ -6,7 +6,8 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true
 
-  has_many :articles
-  # has_many :reviews
+# OK
+  has_many :articles, foreign_key: 'owner_id'
+  has_many :reviews
   # has_many :articles, through: :reviews
 end

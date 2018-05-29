@@ -1,0 +1,43 @@
+  <!--- Footer -->
+  <footer class="footer-bs">
+    <div class="footer-row">
+      <div class="col-md-3 footer-brand animated fadeInLeft">
+        <h2>Your news, your knowledge</h2>
+      </div>
+      <div class="col-md-3 footer-nav animated fadeInUp">
+        <div class="col-md-6">
+          <ul class="footer-list">
+
+            <h4>Sail</h4>
+            <% if !user_signed_in? %>
+              <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path %></li>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Forgot my psw", new_user_password_path %></li>
+            <% else %>
+              <li> <%= link_to "Articles", articles_path, class: "navbar-newsboard-item footer-newsboard-link" %> </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 footer-list animated fadeInDown">
+        <h4>Midia</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 footer-ns animated fadeInRight">
+        <h4>Brand News</h4>
+        <p>Keep up with the world's latest news</p>
+        <p>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Insert E-mail...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+            </span>
+          </div><!-- /input-group -->
+        </p>
+      </div>
+    </div>
+  </footer>

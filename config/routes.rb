@@ -10,16 +10,21 @@ Rails.application.routes.draw do
   end
 
   # routes of articles
-  resources :articles
-
   resources :articles do
-    member do                             # member => article id in URL
-      get 'url_data', to: "articles#url_data"  # ArticlesController#url_data
-    end
+    resources :reviews, only: [:new, :create,:edit,:update]
   end
 
+  get 'home_articles', to: 'pages#home_articles', as: 'home_articles'
+
+
+
+
+
+    # member do                             # member => article id in URL
+    #   get 'url_data', to: "articles#url_data"  # ArticlesController#url_data
+    # end
+  # end
 
   # routes of reviews
-  resources :reviews
 
 end
