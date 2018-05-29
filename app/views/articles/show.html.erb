@@ -5,12 +5,6 @@
     <div class="row">
       <div class="article-id col-sm-offset-1 col-sm-10">
         <div class="article-container">
-          <div class="button-container">
-            <% if current_user == @article.owner_id %>
-              <%= link_to 'Edit', edit_article_path, class: "btn btn-default" %>
-              <%= link_to 'Trash', article_path(@article), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger btn-md' %>
-            <% end %>
-          </div>
 
           <!-- Passar essa inteligência para Controller#Show -->
           <% object = OpenGraphReader.fetch("#{@article.url}") %>
@@ -43,6 +37,12 @@
                 <h3><%= @article.user.username %></h3>
               </div>
             </div>
+          </div>
+          <div class="button-container">
+            <% if current_user == @article.user %>
+              <%= link_to 'Edit'.html_safe, edit_article_path, class: "btn btn-default" %>
+              <%= link_to 'Trash'.html_safe, article_path(@article), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-default' %>
+            <% end %>
           </div>
         </div>
         <div class="reviews-show">
