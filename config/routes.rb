@@ -11,8 +11,9 @@ Rails.application.routes.draw do
 
   # routes of articles
   resources :articles do
-    resources :reviews, only: [:new, :create,:edit,:update]
+    resources :reviews, only: [:new, :create]
   end
+  resources :reviews, only: [:edit, :update, :destroy]
 
   get 'home_articles', to: 'pages#home_articles', as: 'home_articles'
 

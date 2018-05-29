@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Newsboard
   class Application < Rails::Application
+# Configuration to AJAX when Review#create
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 

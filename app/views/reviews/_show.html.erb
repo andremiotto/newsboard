@@ -1,0 +1,12 @@
+<div class="review-content">
+  <div class="message-name col-sm-4">
+    <p><%= review.asker.username %></p>
+    <p><%= review.created_at %></p>
+  </div>
+  <div class="message-body col-sm-8">
+    <h4> <%= review.text %> </h4>
+  </div>
+  <!--<div class="destroy-comment">
+      <%= link_to review_path(review), class: 'btn btn-danger btn-xs', method: :delete, remote: true %>
+  </div> -->
+</div>

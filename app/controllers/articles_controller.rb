@@ -12,8 +12,10 @@ class ArticlesController < ApplicationController
   # end
 
   def show
+    # Needed to scrape urls
     require 'open-uri'
-    @reviews = Review.where(article: @article)
+    # Reviews de @article
+    # @reviews = Review.where(article: @article)
     @review = Review.new
   end
 
