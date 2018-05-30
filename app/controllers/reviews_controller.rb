@@ -48,8 +48,13 @@ class ReviewsController < ApplicationController
   end
 
   def likes
-    @user.like!(@review)
-    redirect_to :back, notice: "Liked this post successfully!"
+    if current_user.likes?(@review)
+      @user.unlike!(@review)
+      redirect_to article_path
+    else
+      @user.like!(@review)
+      redirect_to article_path
+    end
   end
 
   private
