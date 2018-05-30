@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  before_action :set_article, only: [:show, :edit, :update]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
     @articles = Article.order('created_at DESC')
@@ -48,6 +48,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
+    redirect_to articles_path
   end
 
   def url_data
