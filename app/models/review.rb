@@ -6,5 +6,5 @@ class Review < ApplicationRecord
 
   acts_as_likeable
 
-  acts_as_mentioner
+  # acts_as_mentioner
 end

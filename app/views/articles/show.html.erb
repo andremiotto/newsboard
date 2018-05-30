@@ -21,6 +21,10 @@
             </div>
 
             <div class="article-img"><%= image_tag "#{object.og.image.url}" %></div>
+
+            <%= link_to 'like', likes_path(@article) %>
+            <%= @article.likers_count %>
+
             <div class="article-details col-sm-3 col-md-6 col-lg-12">
               <div class="article-url">
                 <p>url:</p>

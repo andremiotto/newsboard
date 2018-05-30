@@ -8,4 +8,6 @@ class Article < ApplicationRecord
   has_many :askers, through: :reviews
 
   acts_as_likeable
+
+  # acts_as_mentioner
 end

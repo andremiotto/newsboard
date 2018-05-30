@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get 'home_articles', to: 'pages#home_articles', as: 'home_articles'
 
+  get 'article/:id/likes', to: 'articles#likes', as: :likes
 
 
 

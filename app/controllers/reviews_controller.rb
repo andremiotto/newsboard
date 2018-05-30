@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_article, only: [:create, :update, :new, :edit]
-  before_action :set_user, only: [:create, :new, :edit, :update]
-  before_action :set_review, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:create, :new, :edit, :update, :likes]
+  before_action :set_review, only: [:edit, :update, :destroy, :likes]
 
 
   def index
@@ -45,6 +45,11 @@ class ReviewsController < ApplicationController
     if @review.destroy
       redirect_to article_path(@article)
     end
+  end
+
+  def likes
+    @user.like!(@review)
+    redirect_to :back, notice: "Liked this post successfully!"
   end
 
   private

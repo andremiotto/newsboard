@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:new, :likes]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :likes]
 
   def index
     @articles = Article.order('created_at DESC')
@@ -22,8 +23,6 @@ class ArticlesController < ApplicationController
   def new
     # @user needed on simple_form_for at articles_form
     # @user = User.find(params[:user_id])
-
-    @user = current_user
     @article = Article.new
     # @article = current_user.article.build_article
   end
@@ -55,7 +54,21 @@ class ArticlesController < ApplicationController
     # @url_object = OpenGraphReader.fetch("#{@articles.url}")
   end
 
+  def likes
+    if current_user.likes?(@article)
+      @user.unlike!(@article)
+      redirect_to article_path(@article), notice: "Unliked this post successfully!"
+    else
+      @user.like!(@article)
+      redirect_to article_path(@article), notice: "Liked this post successfully!"
+    end
+  end
+
   private
+
+  def set_user
+    @user = current_user
+  end
 
   def set_article
     @article = Article.find(params[:id])
