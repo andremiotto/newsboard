@@ -4,7 +4,14 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  # routes of articles that belongs to a user needed to create an user_id/article_id USER_ARTICLES_PATH
+  resources :users do
+    resources :articles
+  end
+
   get 'my_articles', to: 'pages#my_articles'
+
+  get 'profile', to: 'pages#profile'
 
 
   # routes of articles

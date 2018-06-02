@@ -3,10 +3,15 @@
 
 <div class="articles-home">
   <div class="articles-home-title">Latest News</div>
-  <% Article.last(6).reverse.each do |article| %>
-    <%= render 'home_articles', article: article %>
-  <% end %>
+  <div class="home-article-index">
+    <% Article.last(6).reverse.each do |article| %>
+      <%= render 'home_articles', article: article %>
+    <% end %>
+  </div>
 </div>
+  <div class="articles-home-button">
+    <%= link_to "+", articles_path, class: "btn articles-home-button-literal" %>
+  </div>
 
 <div class="about-home">
   <div class="about-home-title">What are talking about us</div>
