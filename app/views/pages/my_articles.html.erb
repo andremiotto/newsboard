@@ -1,0 +1,7 @@
+<div class="article-wrapper">
+  <% @my_articles.each do |article| %>
+  <div class="article-card">
+    <%= render 'shared/articles_card', article: article %>
+  </div>
+  <% end %>
+</div>

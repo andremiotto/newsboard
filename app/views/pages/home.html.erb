@@ -1,8 +1,16 @@
 
 <%= render "banner" %>
+
+<div class="articles-home">
+  <div class="articles-home-title">Latest News</div>
   <% Article.last(6).reverse.each do |article| %>
     <%= render 'home_articles', article: article %>
   <% end %>
+</div>
+
+<div class="about-home">
+  <div class="about-home-title">What are talking about us</div>
+</div>
 
 <div class="container">
   <div class="row">

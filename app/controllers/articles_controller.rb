@@ -8,10 +8,6 @@ class ArticlesController < ApplicationController
     @articles = Article.order('created_at DESC')
   end
 
-  # def user_index
-  #   @user_articles = Article.where(owner_id: params[:user_id])
-  # end
-
   def show
     # Needed to scrape urls
     require 'open-uri'

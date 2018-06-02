@@ -4,10 +4,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  # routes of articles that belongs to a user. PRECISA DE USER_ARTICLES_PATH
-  resources :users do
-    resources :articles
-  end
+  get 'my_articles', to: 'pages#my_articles'
+
 
   # routes of articles
   resources :articles do
@@ -18,7 +16,7 @@ Rails.application.routes.draw do
   get 'home_articles', to: 'pages#home_articles', as: 'home_articles'
 
   get 'articles/:id/likes', to: 'articles#likes', as: :likes
-  get 'reviews/:id/likes', to: 'reviews#likes', as: :likes_review
+  get 'articles/:id/reviews/:id/likes', to: 'reviews#likes', as: :likes_review
 
 
 
