@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :profile]
-
-  before_action :set_user_articles, only: [:profile, :my_articles]
+  skip_before_action :authenticate_user!, only: [:home]
 
   def contact
   end
@@ -10,18 +8,6 @@ class PagesController < ApplicationController
   end
 
   def home
-  end
-
-  def profile
-    @user = current_user
-  end
-
-  def my_articles
-  end
-
-  private
-
-  def set_user_articles
-    @my_articles = Article.where(owner_id: current_user)
+    @home_articles = Article.last(6).reverse
   end
 end

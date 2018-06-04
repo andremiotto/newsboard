@@ -4,7 +4,7 @@
 <div class="articles-home">
   <div class="articles-home-title">Latest News</div>
   <div class="home-article-index">
-    <% Article.last(6).reverse.each do |article| %>
+    <% @home_articles.each do |article| %>
       <%= render 'home_articles', article: article %>
     <% end %>
   </div>

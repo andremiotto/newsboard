@@ -30,17 +30,22 @@
 
     <div id="profile-top-row">
       <div class="user-infos">
-        <div class="user-data">Followees.count
+        <div class="user-data">
+          You are following
+          <%= @user.followees_count %>
+          publishers
         </div>
-        <div class="user-data">Followers.count
+        <div class="user-data">
+          Followed by
+          <%= @user.followers_count %>
         </div>
-        <div class="user-data">Your articles likees:
+        <div class="user-data">
           <% array = [] %>
           <% @my_articles.each do |article| %>
             <% count = article.likers_count %>
             <% array << count %>
           <% end %>
-          <%= array.sum %>
+          <%= array.sum %> People liked your articles
         </div>
         <div class="user-data">
           You liked
@@ -49,7 +54,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </body>
-
