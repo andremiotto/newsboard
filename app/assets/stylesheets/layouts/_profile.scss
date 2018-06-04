@@ -25,12 +25,11 @@
 }
 
 .menu-options {
-  margin-top: 100px;
+  height: 80%;
   border-bottom: solid;
   border-color: white;
   border-radius: 8px;
   color: white;
-  align-items: center;
   text-align: center;
 }
 
@@ -38,6 +37,7 @@
   background-color: white;
   grid-column: 2 / span 1;
   grid-row: 2 / span 1;
+  height: auto;
 }
 
 #profile-top-row {
