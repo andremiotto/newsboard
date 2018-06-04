@@ -38,8 +38,12 @@
 
               <div class="article-user-id">
                 <p>Username</p>
-                <h3><%= @article.user.username %></h3>
+                <a href="<%= user_path(@article.user) %>">
+                  <h3><%= @article.user.username %></h3>
+                </a>
               </div>
+
+
             </div>
           </div>
           <div class="button-container">
