@@ -1,6 +1,39 @@
-<h1>Nickname: <%= @user.username %></h1>
-<h1>email: <%= @user.email%></h1>
-<h1>created at: <%= @user.created_at%></h1>
-<h1>followees: <%= @user.followees_count%></h1>
-<h1>followers: <%= @user.followers_count%></h1>
-<h1>my articles: <%= @my_articles.count%></h1>
+<div class="container show-user">
+  <div class="user-dashboard">
+
+    <div class="main">
+      <div class="main-content">
+        <h1>Picture</h1>
+        <h2>Nickname: <%= @user.username %></h2>
+        <%= link_to 'Follow', follow_path(@user) %>
+      </div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-content">
+        <h2>my articles: <%= @my_articles.count%></h2>
+      </div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-content">
+        <h3>created at: <%= @user.created_at%></h3>
+      </div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-content">
+        <a href=""></a>
+        <h3>Something cool</h3>
+
+      </div>
+    </div>
+
+    <div class="user-articles">
+      <div class="user-articles-content">
+        <h2>followers: <%= @user.followers_count%></h2>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -2,20 +2,15 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get 'users/index'
-  get 'users/follow'
-  get 'users/show'
-
   devise_for :users
 
   # routes of articles that belongs to a user needed to create an user_id/article_id USER_ARTICLES_PATH
-  resources :users, only: [:index] do
+  resources :users, only: [:index, :show] do
     resources :articles
   end
 
   get 'my_articles', to: 'users#my_articles'
   get 'mainpage', to: 'users#mainpage'
-  get 'show', to: 'users#show'
 
 
   # routes of articles
@@ -29,6 +24,7 @@ Rails.application.routes.draw do
   get 'articles/:id/likes', to: 'articles#likes', as: :likes
   get 'articles/:id/reviews/:id/likes', to: 'reviews#likes', as: :likes_review
 
+  get 'users/:id/follow', to: 'users#follow', as: :follow
 
 
 

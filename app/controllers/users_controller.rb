@@ -8,16 +8,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+
   end
 
   def follow
     if current_user.follows?(@user)
-      @user.unfollow!(@user)
-      redirect_to users_show_path(@user), notice: "Unfollowed user!"
+      current_user.unfollow!(@user)
+      redirect_to user_path(@user), notice: "Unfollowed user!"
     else
-      @user.follow!(@user)
-      redirect_to users_show_path(@user), notice: "Following user!"
+      current_user.follow!(@user)
+      redirect_to user_path(@user), notice: "Following user!"
     end
   end
 
