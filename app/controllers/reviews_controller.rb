@@ -50,10 +50,12 @@ class ReviewsController < ApplicationController
   def likes
     if current_user.likes?(@review)
       @user.unlike!(@review)
-      redirect_to article_path(@article), notice: "Unliked this comment successfully!"
+      redirect_to article_path(@article),
+      notice: "Unliked this comment successfully!"
     else
       @user.like!(@review)
-      redirect_to article_path(@article), notice: "Liked this comment successfully!"
+      redirect_to article_path(@article),
+      notice: "Liked this comment successfully!"
     end
   end
 

@@ -1,8 +1,99 @@
-.article-id {
-  margin-top: 50px;
+.article-content {
+  margin-top: 90px;
+  display: grid;
+  grid-template-columns: 40% 50% 10%;
+  grid-gap: 20px;
+  grid-template-rows: 40% 15% 30% 15% ;
+
+}
+
+.article-title {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  text-align: center;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 3px;
+  border-color: #DEB841 ;
+  background-color: white;
+  .article-title-description {
+    font-weight: lighter;
+    font-style: italic;
+    font-size: 20px;
+    padding: 15px 16px;
+  }
+}
+
+.article-img {
+  text-align: center;
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 1;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 3px;
+  border-color: #DEB841 ;
+  background-color: white;
+}
+
+.article-comment {
+  text-align: center;
+  grid-column: 1 / span 2;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 3px;
+  border-color: #DEB841 ;
+  background-color: white;
+  .article-comment-content {
+    grid-row: 2  / span 2;
+  }
+
+}
+
+.article-body {
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 3;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 3px;
+  border-color: #DEB841 ;
+  background-color: white;
+}
+
+.article-details {
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 3px;
+  border-color: #DEB841 ;
+  background-color: white;
+
+
+}
+
+.article-options {
+  grid-column: 3 / span 1;
+  grid-row: 4 / span 1;
+  text-align: center;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 3px;
+  border-color: #DEB841 ;
+  background-color: white;
+
+}
+
+.reviews-show {
+  grid-row: 4 / span 1;
+  grid-column: 1 / span 2;
   text-align: center;
 }
 
+// reviews/_show.html
 .review-content {
   background-color: white;
   border-style: solid;
