@@ -9,4 +9,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def my_articles
+    @my_articles = Article.where(owner_id: current_user)
+  end
 end

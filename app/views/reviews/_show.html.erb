@@ -6,6 +6,10 @@
   <div class="message-body col-sm-8">
     <h4> <%= review.text %> </h4>
   </div>
+
+  <div class="message-likes">
+    <%= link_to 'like', likes_review_path(review) %>
+    <%= review.likers_count %></div>
   <!--<div class="destroy-comment">
       <%= link_to review_path(review), class: 'btn btn-danger btn-xs', method: :delete, remote: true %>
   </div> -->

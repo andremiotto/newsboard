@@ -10,4 +10,14 @@ class User < ApplicationRecord
   has_many :articles, foreign_key: 'owner_id'
   has_many :reviews
   # has_many :articles, through: :reviews
+
+# Provavelmente necessitará de tabela própria Followers
+  # acts_as_followable
+
+  acts_as_follower
+  acts_as_followable
+
+  acts_as_liker
+
+  # acts_as_mentionable
 end

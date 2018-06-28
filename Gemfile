@@ -28,7 +28,8 @@ gem 'faraday_middleware'
 gem 'faraday-cookie_jar'
 # Parses url body
 # gem 'opengraph'
-
+# To follow, like and tagging features
+gem 'socialization'
 
 
 gem 'simple_form'

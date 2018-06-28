@@ -4,4 +4,7 @@ class Review < ApplicationRecord
 
   validates :asker, :text, presence: true
 
+  acts_as_likeable
+
+  # acts_as_mentioner
 end

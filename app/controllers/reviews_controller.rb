@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
-  before_action :set_article, only: [:create, :update, :new, :edit]
-  before_action :set_user, only: [:create, :new, :edit, :update]
-  before_action :set_review, only: [:edit, :update, :destroy]
+  before_action :set_article, only: [:create, :update, :new, :edit, :likes]
+  before_action :set_user, only: [:create, :new, :edit, :update, :likes]
+  before_action :set_review, only: [:edit, :update, :destroy, :likes]
 
 
   def index
@@ -44,6 +44,16 @@ class ReviewsController < ApplicationController
   def destroy
     if @review.destroy
       redirect_to article_path(@article)
+    end
+  end
+
+  def likes
+    if current_user.likes?(@review)
+      @user.unlike!(@review)
+      redirect_to article_path(@article), notice: "Unliked this comment successfully!"
+    else
+      @user.like!(@review)
+      redirect_to article_path(@article), notice: "Liked this comment successfully!"
     end
   end
 
