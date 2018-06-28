@@ -1,72 +1,78 @@
 <!-- Show @article -->
 
-<div class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="article-id col-sm-offset-1 col-sm-10">
-        <div class="article-container">
+<div class="container">
+  <div class="article-content">
 
-          <!-- Passar essa inteligência para Controller#Show -->
-          <% object = OpenGraphReader.fetch("#{@article.url}") %>
-          <div class="article-title"><%= object.og.title %></div>
+    <!-- Passar essa inteligência para Controller#Show -->
+    <% object = OpenGraphReader.fetch("#{@article.url}") %>
+    <div class="article-title">
+      <div class="article-title-content">
+        <%= object.og.title %>
+      </div>
+      <div class="article-title-description">
+        <p><%= object.og.description %></p>
+      </div>
+    </div>
 
-          <div class="article-layout">
+    <div class="article-img">
+      <div class="article-img-content"><%= image_tag "#{object.og.image.url}" %></div>
+    </div>
 
-            <div class="article-body">
-              <p>News content:</p>
-              <% url = @article.url %>
-              <% html_file = open(url).read %>
-              <% html_doc = Nokogiri::HTML(html_file) %>
-              <%= html_doc.search('.article__content').text %>
-            </div>
+    <div class="article-comment">
+      <div class="artile-comment-content">
+        <h3>comment of <%= @article.user.username %>:</h3>
+        <p><%= @article.comment %></p>
+      </div>
+    </div>
 
-            <div class="article-img"><%= image_tag "#{object.og.image.url}" %></div>
+    <div class="article-body">
+      <div class="article-body-content">
+        <% url = @article.url %>
+        <% html_file = open(url).read %>
+        <% html_doc = Nokogiri::HTML(html_file) %>
+        <%= html_doc.search('.article__content').text %>
+      </div>
+    </div>
 
-            <%= link_to 'like', likes_path(@article) %>
-            <%= @article.likers_count %>
 
-            <div class="article-details col-sm-3 col-md-6 col-lg-12">
-              <div class="article-url">
-                <p>url:</p>
-                <%= link_to "Read on main source", @article.url, target: :_blank %>
-              </div>
+    <div class="article-details col-sm-3 col-md-6 col-lg-12">
 
-              <div class="artile-comment">
-                <p>comment:</p>
-                <h3><%= @article.comment %></h3>
-              </div>
+      <div class="article-user-id">
+        <p>Publisher</p>
+        <a href="<%= user_path(@article.user) %>">
+          <h3><%= @article.user.username %></h3>
+        </a>
+      </div>
 
-              <div class="article-user-id">
-                <p>Username</p>
-                <h3><%= @article.user.username %></h3>
-              </div>
-            </div>
-          </div>
-          <div class="button-container">
-            <% if current_user == @article.user %>
-              <%= link_to 'Edit'.html_safe, edit_article_path, class: "btn btn-default" %>
-              <%= link_to 'Trash'.html_safe, article_path(@article), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-default' %>
-            <% end %>
-          </div>
-        </div>
-        <div class="reviews-show">
-          <div class="review-box">
-            <%= render 'reviews/form_reviews', article: @article, review: @review %>
-          </div>
+      <div class="article-like-content">
+        <%= link_to 'like', likes_path(@article) %>
+        <%= @article.likers_count %>
+      </div>
 
-            <% if @article.reviews.blank? %>
-<!--               <h2>Be the first to leave a review for <%= @article.user.username %> </h2>
- -->
-            <% else %>
-              <div class="reviews-container"'>
-                <% @article.reviews.reverse.each do |review|  %>
-                  <div id="reviews">
-                  <%= render 'reviews/show', review: review %>
-          </div>
-                <% end %>
-              </div>
-            <% end %>
-        </div>
+      <div class="article-button-content">
+        <% if current_user == @article.user %>
+          <%= link_to 'Edit'.html_safe, edit_article_path, class: "btn btn-default" %>
+          <%= link_to 'Trash'.html_safe, article_path(@article), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-default' %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="article-options">
+
+      <div class="article-url">
+        <p>url:</p>
+        <%= link_to "Read on main source", @article.url, target: :_blank %>
+      </div>
+
+    </div>
+    <div class="reviews-show">
+      <div class="reviews-show-form">
+        <%= render 'reviews/form_reviews', article: @article, review: @review %>
+      </div>
+      <div class="reviews-show-reviews" id="reviews">
+        <% @article.reviews.reverse.each do |review|  %>
+          <%= render 'reviews/show', review: review %>
+        <% end %>
       </div>
     </div>
   </div>

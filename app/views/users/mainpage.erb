@@ -1,0 +1,58 @@
+<body>
+  <div class="main-container">
+
+    <div id="profile-left-menu">
+      <div class="menus">
+        <div class="menu-options opt-1">My Articles</div>
+        <div class="menu-options opt-2">Follows</div>
+        <div class="menu-options opt-3">Last Posts</div>
+        <div class="menu-options opt-4">Post</div>
+      </div>
+    </div>
+
+    <div class="profile-middle">
+      <div class="row">
+        <!-- 1 div com col-md-6 + 1 div com card -->
+        <div class="wrapper">
+          <div class="container">
+            <div class="row">
+              <div class="register col-sm-offset-4 col-sm-4">
+                <h3>Insert News or Article</h3>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, voluptatibus, velit repudiandae obcaecati quas ut totam labore doloremque explicabo, expedita reiciendis. Perferendis error consectetur similique, consequatur architecto ipsam excepturi. Error?
+                <!--   < render 'articles/new' %>
+ -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="profile-top-row">
+      <div class="user-infos">
+        <div class="user-data">
+          You are following
+          <%= @user.followees_count %>
+          publishers
+        </div>
+        <div class="user-data">
+          Followed by
+          <%= @user.followers_count %>
+        </div>
+        <div class="user-data">
+          <% array = [] %>
+          <% @my_articles.each do |article| %>
+            <% count = article.likers_count %>
+            <% array << count %>
+          <% end %>
+          <%= array.sum %> People liked your articles
+        </div>
+        <div class="user-data">
+          You've posted
+          <%= @my_articles.count %>
+          articles
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
